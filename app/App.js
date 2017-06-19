@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 
 import Home from 'Pages/Home'
 
@@ -12,11 +12,9 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <Router>
-        <div>
-          <Route path='/' component={Home} />
-        </div>
-      </Router>
+      <div>
+        <Route path='/' component={Home} />
+      </div>
     )
   }
 }

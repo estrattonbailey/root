@@ -1,41 +1,30 @@
 import React from 'react'
-import Prismic from 'prismic.io'
-import prismicProvider from 'Util/prismicProvider'
 import { Flex } from 'micro-grid'
 import Internet from 'Components/Internet'
+import prismic from 'Util/prismic'
 
-export default prismicProvider(class Internets extends React.Component {
-  constructor (p) {
-    super(p)
+import { hydrate } from 'react-hydrate'
 
-    this.state = {
+const Internets = ({ internets }) => {
+  return (
+    <Flex gutter={1.5} wrap>
+      {internets && internets.map(i => (
+        <Internet {...i} key={i.url.value.url} />
+      ))}
+    </Flex>
+  )
+}
 
-    }
-
-    p.prismic(api => {
-      api.query(
-        Prismic.Predicates.at('document.type', 'website'),
-        {
-          orderings:
-          '[my.website.date desc]'
-        }
-      ).then(websites => {
-        this.setState({
-          internets: websites.results.map(res => res.rawJSON.website)
-        })
-      })
-    })
-  }
-
-  render () {
-    const { internets } = this.state
-
-    return (
-      <Flex gutter={1.5} wrap>
-        {internets && internets.map(i => (
-          <Internet {...i} key={i.url.value.url} />
-        ))}
-      </Flex>
-    )
-  }
-})
+export default hydrate(
+  props => prismic((api, ctx) => {
+    return api.query(
+      ctx.Predicates.at('document.type', 'website'),
+      { orderings: '[my.website.date desc]' }
+    ).then(websites => ({
+      internets: websites.results.map(res => res.rawJSON.website)
+    })).catch(err => console.error(err))
+  }),
+  state => ({
+    internets: state.internets
+  })
+)(Internets)
