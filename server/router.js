@@ -18,7 +18,8 @@ module.exports = (req, res) => {
     </Router>
   )
 
-  const pre = render()
+  render()
+  console.log('Hello')
 
   if (ctx.url) {
     res.writeHead(302, {

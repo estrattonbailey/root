@@ -18,7 +18,7 @@ const PRODUCTION = NODE_ENV === 'production'
 const express = require('express')
 const compression = require('compression')
 const cors = require('cors')
-const parser = require('body-parser')
+// const parser = require('body-parser')
 const path = require('path')
 
 const router = require('./router.js')
@@ -30,6 +30,7 @@ const app = express()
 const port = PORT || 8888
 
 app.use('*', cors())
+app.use(compression())
 app.use(express.static(path.join(__dirname, '../public'), {
   maxage: PRODUCTION ? 86400000 : 0
 }))
