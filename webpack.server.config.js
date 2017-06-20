@@ -3,6 +3,9 @@ const path = require('path')
 const fs = require('fs')
 const p = process.env.NODE_ENV === 'production'
 
+/**
+ * @see http://jlongster.com/Backend-Apps-with-Webpack--Part-I
+ */
 const nodeModules = {};
 fs.readdirSync('node_modules')
   .filter(function(x) {
@@ -14,13 +17,26 @@ fs.readdirSync('node_modules')
 
 module.exports = {
   target: 'node',
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
   entry: path.join(__dirname, 'server/index.js'),
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'server.js',
     publicPath: '/'
   },
+  externals: nodeModules,
+  node: {
+    console: true,
+    __filename: true,
+    __dirname: true
+  },
+  plugins: [
+    new webpack.BannerPlugin({
+      banner: 'require("source-map-support").install();',
+      raw: true,
+      entryOnly: false
+    })
+  ],
   module: {
     rules: [
       {
@@ -51,11 +67,5 @@ module.exports = {
       Util: path.join(__dirname, 'app/util'),
       Root: path.join(__dirname, 'app/')
     }
-  },
-  externals: nodeModules,
-  node: {
-    console: true,
-    __filename: true,
-    __dirname: true
   }
 }

@@ -6,18 +6,7 @@ import IconButtons from 'Components/IconButtons'
 import prismic from 'Util/prismic'
 import { hydrate } from 'react-hydrate'
 
-export default hydrate(
-  props => prismic((api, ctx) => {
-    return api.getSingle('homepage').then(({ rawJSON }) => {
-      return {
-        bio: get(rawJSON, 'homepage.bio.value[0].text')
-      }
-    }).catch(err => console.error(err))
-  }),
-  state => ({
-    bio: state.bio
-  })
-)(({ loading, bio }) => {
+const Header = ({ loading, bio }) => {
   return (
     <header className='header'>
       <h2 className='h4 mv0'>estrattonbailey</h2>
@@ -29,4 +18,14 @@ export default hydrate(
       <hr className='mt1' />
     </header>
   )
-})
+}
+
+export default hydrate(
+  props => prismic((api, ctx) => {
+    return api.getSingle('homepage').then(({ rawJSON }) => {
+      return {
+        bio: get(rawJSON, 'homepage.bio.value[0].text')
+      }
+    }).catch(err => console.error(err))
+  })
+)(Header)

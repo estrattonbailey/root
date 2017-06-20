@@ -23,8 +23,5 @@ export default hydrate(
     ).then(websites => ({
       internets: websites.results.map(res => res.rawJSON.website)
     })).catch(err => console.error(err))
-  }),
-  state => ({
-    internets: state.internets
   })
 )(Internets)

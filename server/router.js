@@ -19,7 +19,6 @@ module.exports = (req, res) => {
   )
 
   render()
-  console.log('Hello')
 
   if (ctx.url) {
     res.writeHead(302, {
@@ -27,9 +26,10 @@ module.exports = (req, res) => {
     })
     res.end()
   } else {
-    store.fetch().then(data => {
-      res.send(html(render(), store.state, getCSS()))
+    store.getState().then(state => {
+      res.send(html(render(), state, getCSS()))
       res.end()
+      store.clearState()
     })
   }
 }

@@ -1,5 +1,3 @@
-require('babel-core/register')
-
 /**
  * Pull in env vars
  */

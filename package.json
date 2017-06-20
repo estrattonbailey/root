@@ -6,12 +6,12 @@
   "scripts": {
     "start": "concurrently 'npm run watch:js' 'npm run watch:css' 'npm run watch:serve'",
     "serve": "node public/server.js",
-    "watch:serve": "nodemon public/server.js",
+    "watch:serve": "concurrently 'npm run watch:server' 'nodemon public/server.js'",
     "build": "npm run build:js && npm run build:css && npm run build:server",
     "build:server": "NODE_ENV=production webpack --config webpack.server.config.js --progress -p",
-    "watch:server": "NODE_ENV=development webpack --config webpack.server.config.js --progress -w",
+    "watch:server": "NODE_ENV=development webpack --config webpack.server.config.js -w",
     "build:js": "NODE_ENV=production webpack --progress -p",
-    "watch:js": "NODE_ENV=production webpack --progress -w",
+    "watch:js": "NODE_ENV=production webpack -w",
     "build:css": "NODE_ENV=production postcss app/styles/main.css -o public/main.css",
     "watch:css": "NODE_ENV=development postcss app/styles/main.css -w -o public/main.css"
   },
@@ -55,7 +55,7 @@
     "promise-polyfill": "^6.0.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-hydrate": "0.0.1",
+    "react-hydrate": "^0.2.1",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1"
   }
