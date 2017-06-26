@@ -1,3 +1,5 @@
+import 'source-map-support/register'
+
 /**
  * Pull in env vars
  */
@@ -27,11 +29,11 @@ const router = require('./router.js')
 const app = express()
 const port = PORT || 8888
 
+const staticPath = PRODUCTION ? path.join(__dirname, '../public') : path.join(__dirname, '../dist/public')
+
 app.use('*', cors())
 app.use(compression())
-app.use(express.static(path.join(__dirname, '../public'), {
-  maxage: PRODUCTION ? 86400000 : 0
-}))
+app.use('/public', express.static(staticPath, { maxage: PRODUCTION ? 86400000 : 0 }))
 
 app.use(router)
 

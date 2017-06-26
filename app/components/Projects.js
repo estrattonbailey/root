@@ -25,6 +25,8 @@ export default hydrate(
         projects: projects.results.map(res => res.rawJSON.project)
       }
     })
+  }),
+  state => ({
+    projects: state.projects
   })
 )(Projects)
-

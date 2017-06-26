@@ -20,7 +20,7 @@ module.exports = {
   devtool: 'source-map',
   entry: path.join(__dirname, 'server/index.js'),
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'dist'),
     filename: 'server.js',
     publicPath: '/'
   },
@@ -30,13 +30,6 @@ module.exports = {
     __filename: true,
     __dirname: true
   },
-  plugins: [
-    new webpack.BannerPlugin({
-      banner: 'require("source-map-support").install();',
-      raw: true,
-      entryOnly: false
-    })
-  ],
   module: {
     rules: [
       {

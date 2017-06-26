@@ -1,5 +1,4 @@
 import React from 'react'
-import prismicProvider from 'Util/prismicProvider'
 import get from 'lodash/get'
 import IconButtons from 'Components/IconButtons'
 
@@ -27,5 +26,8 @@ export default hydrate(
         bio: get(rawJSON, 'homepage.bio.value[0].text')
       }
     }).catch(err => console.error(err))
+  }),
+  state => ({
+    bio: state.bio
   })
 )(Header)

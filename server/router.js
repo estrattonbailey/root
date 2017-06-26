@@ -4,15 +4,16 @@ const { StaticRouter: Router } = require('react-router')
 
 const html = require('./html.js')
 const App = require('../app/App.js').default
-const { Tap, store } = require('react-hydrate')
+const { Tap, createStore } = require('react-hydrate')
 const { getCSS } = require('micro-grid')
 
 module.exports = (req, res) => {
   const ctx = {}
+  const store = createStore({})
 
   const render = () => renderToString(
     <Router location={req.url} context={ctx}>
-      <Tap>
+      <Tap hydrate={store}>
         <App />
       </Tap>
     </Router>
@@ -26,7 +27,7 @@ module.exports = (req, res) => {
     })
     res.end()
   } else {
-    store.getState().then(state => {
+    store.fetch().then(state => {
       res.send(html(render(), state, getCSS()))
       res.end()
       store.clearState()
