@@ -1,9 +1,7 @@
 import React from 'react'
-import get from 'lodash/get'
 import IconButtons from 'Components/IconButtons'
-
-import prismic from 'Util/prismic'
 import { hydrate } from 'react-hydrate'
+import api from 'Util/api'
 
 const Header = ({ loading, bio }) => {
   return (
@@ -20,13 +18,15 @@ const Header = ({ loading, bio }) => {
 }
 
 export default hydrate(
-  props => prismic((api, ctx) => {
-    return api.getSingle('homepage').then(({ rawJSON }) => {
+  props => {
+    return api.getEntries({
+      content_type: 'homepage'
+    }).then(({ items }) => {
       return {
-        bio: get(rawJSON, 'homepage.bio.value[0].text')
+        bio: items[0].fields.bio
       }
-    }).catch(err => console.error(err))
-  }),
+    }).catch(err => console.error('Header', err))
+  },
   state => ({
     bio: state.bio
   })

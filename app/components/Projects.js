@@ -1,31 +1,29 @@
 import React from 'react'
 import { Flex } from 'micro-grid'
 import Project from 'Components/Project'
-import prismic from 'Util/prismic'
 import { hydrate } from 'react-hydrate'
+
+import api from 'Util/api'
 
 const Projects = ({ projects }) => (
   <Flex gutter={1.5} wrap>
     {projects && projects.map(i => (
-      <Project {...i} key={i.url.value.url} />
+      <Project {...i} key={i.url} />
     ))}
   </Flex>
 )
 
 export default hydrate(
-  props => prismic((api, ctx) => {
-    return api.query(
-      ctx.Predicates.at('document.type', 'project'),
-      {
-        orderings: '[my.project.order desc]',
-        pageSize: 100
-      }
-    ).then(projects => {
+  props => {
+    return api.getEntries({
+      content_type: 'project',
+      order: '-fields.order'
+    }).then(({ items }) => {
       return {
-        projects: projects.results.map(res => res.rawJSON.project)
+        projects: items.map(item => item.fields)
       }
-    })
-  }),
+    }).catch(err => console.error('Projects', err))
+  },
   state => ({
     projects: state.projects
   })
