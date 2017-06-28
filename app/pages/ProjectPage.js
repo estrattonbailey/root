@@ -18,7 +18,6 @@ export default hydrate(
         [slug]: items[0].fields
       }
     }).catch(err => {
-      console.error(err)
       return {
         error: err
       }
@@ -36,7 +35,7 @@ export default hydrate(
     }
   }
 )(
-  ({ loading, data }) => {
+  ({ loading, data, ...props }) => {
     return (
       <Outer>
         <Container>

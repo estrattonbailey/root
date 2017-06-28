@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'react-hydrate-link'
 import { Box } from 'micro-grid'
 
 export default ({ title, caption, url, slug }) => (
