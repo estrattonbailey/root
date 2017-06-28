@@ -5,46 +5,47 @@ import Section from 'Components/Section'
 import { hydrate } from 'react-hydrate'
 
 import api from 'Util/api'
-import find from 'lodash/find'
-import matchesProperty from 'lodash/matchesProperty'
 
 export default hydrate(
   (props, state) => {
     const slug = props.match.params.slug
-    const existing = find(state.projects || [], matchesProperty('slug', slug))
 
-    return existing ? ({
-      [slug]: existing
-    }) : (
-      api.getEntries({
-        content_type: 'project',
-        'fields.slug': slug
-      }).then(({ items }) => {
-        return {
-          [slug]: items[0].fields
-        }
-      }).catch(err => {
-        console.error(err)
-        return {
-          error: err
-        }
-      })
-    )
+    return api.getEntries({
+      content_type: 'project',
+      'fields.slug': slug
+    }).then(({ items }) => {
+      return {
+        [slug]: items[0].fields
+      }
+    }).catch(err => {
+      console.error(err)
+      return {
+        error: err
+      }
+    })
   },
   (state, props) => {
     const slug = props.match.params.slug
+
+    const data = state[slug]
+
+    if (!data) throw new Error()
+
     return {
-      data: state[slug]
+      data
     }
   }
 )(
   ({ loading, data }) => {
-    console.log(loading, data)
     return (
       <Outer>
         <Container>
           <Header />
-          <Section title='Title' />
+          {loading ? (
+            <h5>Loading...</h5>
+          ) : (
+            <Section title={data.title} />
+          )}
         </Container>
       </Outer>
     )

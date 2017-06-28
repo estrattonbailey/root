@@ -1,14 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import icons from 'Icons'
 
-export default ({ to, icon }) => {
+export default ({ href, icon }) => {
   const SVG = icons[icon]
 
   return (
-    <Link to={to} className='icon-button px05 focus block relative'>
+    <a href={href} target='_blank' className='icon-button px05 focus block relative'>
       <SVG className='absolute fit-x mxa' />
-    </Link>
+    </a>
   )
 }
