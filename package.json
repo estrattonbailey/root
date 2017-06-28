@@ -58,7 +58,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-hydrate": "^0.5.1",
-    "react-hydrate-link": "0.0.1",
+    "react-hydrate-link": "^0.1.0",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "source-map-support": "^0.4.15"
