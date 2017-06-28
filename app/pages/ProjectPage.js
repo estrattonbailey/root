@@ -29,7 +29,7 @@ export default hydrate(
 
     const data = state[slug]
 
-    if (!data) throw new Error()
+    if (!data) return false
 
     return {
       data
@@ -44,7 +44,11 @@ export default hydrate(
           {loading ? (
             <h5>Loading...</h5>
           ) : (
-            <Section title={data.title} />
+            <Section title={data.title}>
+              <div dangerouslySetInnerHTML={{
+                __html: data.readme
+              }} />
+            </Section>
           )}
         </Container>
       </Outer>
