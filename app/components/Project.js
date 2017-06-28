@@ -9,7 +9,7 @@ export default ({ title, caption, url, slug }) => (
     [1050, 1 / 4]
   ]}>
     <div className='project mb2'>
-      <Link to={`/${slug}`}>
+      <Link to={`/oss/${slug}`}>
         <h5 className='mv0'>{title}</h5>
       </Link>
       <p className='mv0 mt025'>{caption}</p>

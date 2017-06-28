@@ -2,6 +2,7 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 
 import Home from 'Pages/Home'
+import ProjectPage from 'Pages/ProjectPage'
 
 export default class App extends React.Component {
   constructor (p) {
@@ -13,7 +14,8 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-        <Route path='/' component={Home} />
+        <Route exact path='/' component={Home} />
+        <Route path='/oss/:slug' component={ProjectPage} />
       </div>
     )
   }
