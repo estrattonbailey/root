@@ -32,15 +32,15 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        enforce: 'pre',
-        test: /\.js?$/,
-        loader: 'standard-loader',
-        exclude: /node_modules|app/,
-        options: {
-          parser: 'babel-eslint'
-        }
-      },
+      // {
+      //   enforce: 'pre',
+      //   test: /\.js?$/,
+      //   loader: 'standard-loader',
+      //   exclude: /node_modules|app/,
+      //   options: {
+      //     parser: 'babel-eslint'
+      //   }
+      // },
       {
         test: /\.js$/,
         exclude: /node_modules/,
