@@ -3,17 +3,16 @@ import { Outer, Container } from 'Components/Layout'
 import Header from 'Components/Header'
 import Section from 'Components/Section'
 import { hydrate } from 'react-hydrate'
-
-import snarkdown from 'snarkdown'
-import prism from 'prismjs'
-
 import api from 'Util/api'
 
-const markdown = md => snarkdown(md, {
-  highlight (s, l) {
-    return prism.highlight(s, prism.languages[l])
-  }
-})
+import snarkdown from 'snarkdown'
+// import prism from 'prismjs'
+
+// const markdown = md => snarkdown(md, {
+//   highlight (s, l) {
+//     return prism.highlight(s, prism.languages[l])
+//   }
+// })
 
 export default hydrate(
   (props, state) => {
@@ -54,7 +53,7 @@ export default hydrate(
           ) : (
             <Section title={data.title}>
               <div dangerouslySetInnerHTML={{
-                __html: markdown(data.readme || '')
+                __html: snarkdown(data.readme || '')
               }} />
             </Section>
           )}

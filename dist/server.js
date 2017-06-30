@@ -22582,17 +22582,13 @@ var _Section2 = _interopRequireDefault(_Section);
 
 var _reactHydrate = __webpack_require__(23);
 
-var _snarkdown = __webpack_require__(214);
-
-var _snarkdown2 = _interopRequireDefault(_snarkdown);
-
-var _prismjs = __webpack_require__(215);
-
-var _prismjs2 = _interopRequireDefault(_prismjs);
-
 var _api = __webpack_require__(30);
 
 var _api2 = _interopRequireDefault(_api);
+
+var _snarkdown = __webpack_require__(214);
+
+var _snarkdown2 = _interopRequireDefault(_snarkdown);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22600,13 +22596,13 @@ function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in ob
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var markdown = function markdown(md) {
-  return (0, _snarkdown2.default)(md, {
-    highlight: function highlight(s, l) {
-      return _prismjs2.default.highlight(s, _prismjs2.default.languages[l]);
-    }
-  });
-};
+// import prism from 'prismjs'
+
+// const markdown = md => snarkdown(md, {
+//   highlight (s, l) {
+//     return prism.highlight(s, prism.languages[l])
+//   }
+// })
 
 exports.default = (0, _reactHydrate.hydrate)(function (props, state) {
   var slug = props.match.params.slug;
@@ -22653,7 +22649,7 @@ exports.default = (0, _reactHydrate.hydrate)(function (props, state) {
         _Section2.default,
         { title: data.title },
         _react2.default.createElement('div', { dangerouslySetInnerHTML: {
-            __html: markdown(data.readme || '')
+            __html: (0, _snarkdown2.default)(data.readme || '')
           } })
       )
     )
@@ -22665,12 +22661,6 @@ exports.default = (0, _reactHydrate.hydrate)(function (props, state) {
 /***/ (function(module, exports) {
 
 module.exports = require("snarkdown");
-
-/***/ }),
-/* 215 */
-/***/ (function(module, exports) {
-
-module.exports = require("prismjs");
 
 /***/ })
 /******/ ]);
