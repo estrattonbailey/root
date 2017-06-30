@@ -11551,6 +11551,8 @@ var _api = __webpack_require__(40);
 
 var _api2 = _interopRequireDefault(_api);
 
+var _reactRouterDom = __webpack_require__(38);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Header = function Header(_ref) {
@@ -11561,9 +11563,13 @@ var Header = function Header(_ref) {
     'header',
     { className: 'header' },
     _react2.default.createElement(
-      'h2',
-      { className: 'h4 mv0' },
-      'estrattonbailey'
+      _reactRouterDom.Link,
+      { to: '/' },
+      _react2.default.createElement(
+        'h2',
+        { className: 'h4 mv0' },
+        'estrattonbailey'
+      )
     ),
     _react2.default.createElement(
       'p',

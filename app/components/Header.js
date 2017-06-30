@@ -2,11 +2,12 @@ import React from 'react'
 import IconButtons from 'Components/IconButtons'
 import { hydrate } from 'react-hydrate'
 import api from 'Util/api'
+import { Link } from 'react-router-dom'
 
 const Header = ({ loading, bio }) => {
   return (
     <header className='header'>
-      <h2 className='h4 mv0'>estrattonbailey</h2>
+      <Link to='/'><h2 className='h4 mv0'>estrattonbailey</h2></Link>
       <p className='mt025 mb025'>{loading ? 'Loading bio...' : bio}</p>
       <div className='mhn05'>
         <IconButtons />
