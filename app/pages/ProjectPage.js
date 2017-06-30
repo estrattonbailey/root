@@ -5,14 +5,7 @@ import Section from 'Components/Section'
 import { hydrate } from 'react-hydrate'
 import api from 'Util/api'
 
-import snarkdown from 'snarkdown'
-// import prism from 'prismjs'
-
-// const markdown = md => snarkdown(md, {
-//   highlight (s, l) {
-//     return prism.highlight(s, prism.languages[l])
-//   }
-// })
+import Markdown from 'Components/Markdown'
 
 export default hydrate(
   (props, state) => {
@@ -52,9 +45,7 @@ export default hydrate(
             <h5>Loading...</h5>
           ) : (
             <Section title={data.title}>
-              <div dangerouslySetInnerHTML={{
-                __html: snarkdown(data.readme || '')
-              }} />
+              <Markdown string={data.readme} />
             </Section>
           )}
         </Container>
