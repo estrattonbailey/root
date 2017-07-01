@@ -4,8 +4,10 @@ import scroller from 'scroll-restoration'
 
 import { Outer, Container } from 'Components/Layout'
 import Header from 'Components/Header'
+import Footer from 'Components/Footer'
 import Home from 'Pages/Home'
-import ProjectPage from 'Pages/ProjectPage'
+import Projects from 'Pages/Projects'
+import Project from 'Pages/Project'
 
 import MicroGrid from 'Demos/MicroGrid'
 
@@ -30,21 +32,30 @@ export default class App extends React.Component {
     window.addEventListener('popstate', this.handleScroll)
   }
 
+  componentWillUnmount () {
+    window.removeEventListener('popstate', this.handleScroll)
+  }
+
   render () {
     return (
       <Route render={props => {
         return (
-          <Outer>
-            <Container>
-              <Header />
+          <div>
+            <Outer>
+              <Container>
+                <Header />
 
-              <Route exact path='/' component={Home} />
-              <Route path='/oss/:slug' render={props => {
-                const Render = demos[props.match.params.slug] || ProjectPage
-                return <Render {...props} />
-              }} />
-            </Container>
-          </Outer>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/oss' component={Projects} />
+                <Route path='/oss/:slug' render={props => {
+                  const Render = demos[props.match.params.slug] || Project
+                  return <Render {...props} />
+                }} />
+              </Container>
+            </Outer>
+
+            <Footer />
+          </div>
         )
       }} />
     )

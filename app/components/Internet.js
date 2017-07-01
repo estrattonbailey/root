@@ -9,10 +9,14 @@ export default ({ title, tech, roles, url }) => (
     [1050, 1 / 3]
   ]}>
     <div className='internet pl1 mb2'>
-      <Link to={url} target='_blank'>
+      {url ? (
+        <Link to={url} onClick={e => window.scrollTo(0, 0)}>
+          <h4 className='mv0'>{title}</h4>
+        </Link>
+      ) : (
         <h4 className='mv0'>{title}</h4>
-      </Link>
-      <p className='mv0 mt025'>{tech}</p>
+      )}
+      <p className='mv025'>{tech}</p>
       <p className='mv0'><small><em>{roles}</em></small></p>
     </div>
   </Box>

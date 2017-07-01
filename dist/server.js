@@ -22071,13 +22071,21 @@ var _Header = __webpack_require__(112);
 
 var _Header2 = _interopRequireDefault(_Header);
 
+var _Footer = __webpack_require__(376);
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
 var _Home = __webpack_require__(255);
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _ProjectPage = __webpack_require__(269);
+var _Projects = __webpack_require__(374);
 
-var _ProjectPage2 = _interopRequireDefault(_ProjectPage);
+var _Projects2 = _interopRequireDefault(_Projects);
+
+var _Project = __webpack_require__(375);
+
+var _Project2 = _interopRequireDefault(_Project);
 
 var _MicroGrid = __webpack_require__(370);
 
@@ -22120,22 +22128,33 @@ var App = function (_React$Component) {
       window.addEventListener('popstate', this.handleScroll);
     }
   }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.removeEventListener('popstate', this.handleScroll);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(_reactRouterDom.Route, { render: function render(props) {
           return _react2.default.createElement(
-            _Layout.Outer,
+            'div',
             null,
             _react2.default.createElement(
-              _Layout.Container,
+              _Layout.Outer,
               null,
-              _react2.default.createElement(_Header2.default, null),
-              _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
-              _react2.default.createElement(_reactRouterDom.Route, { path: '/oss/:slug', render: function render(props) {
-                  var Render = demos[props.match.params.slug] || _ProjectPage2.default;
-                  return _react2.default.createElement(Render, props);
-                } })
-            )
+              _react2.default.createElement(
+                _Layout.Container,
+                null,
+                _react2.default.createElement(_Header2.default, null),
+                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
+                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/oss', component: _Projects2.default }),
+                _react2.default.createElement(_reactRouterDom.Route, { path: '/oss/:slug', render: function render(props) {
+                    var Render = demos[props.match.params.slug] || _Project2.default;
+                    return _react2.default.createElement(Render, props);
+                  } })
+              )
+            ),
+            _react2.default.createElement(_Footer2.default, null)
           );
         } });
     }
@@ -22173,6 +22192,12 @@ var _Projects = __webpack_require__(267);
 
 var _Projects2 = _interopRequireDefault(_Projects);
 
+var _microGrid = __webpack_require__(28);
+
+var _Internet = __webpack_require__(266);
+
+var _Internet2 = _interopRequireDefault(_Internet);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (props) {
@@ -22189,6 +22214,30 @@ exports.default = function (props) {
       _Section2.default,
       { title: 'Open Source' },
       _react2.default.createElement(_Projects2.default, null)
+    ),
+    _react2.default.createElement('hr', null),
+    _react2.default.createElement(
+      _Section2.default,
+      { title: 'R\xE9sum\xE9' },
+      _react2.default.createElement(
+        _microGrid.Flex,
+        { gutter: 1.5, wrap: true },
+        _react2.default.createElement(_Internet2.default, {
+          title: 'Freelance',
+          tech: 'React, GraphQL, Wordpress REST API, Node.js',
+          roles: 'May 2017 - preset'
+        }),
+        _react2.default.createElement(_Internet2.default, {
+          title: 'Barrel',
+          tech: 'Developer',
+          roles: 'Jan 2015 - May 2017'
+        }),
+        _react2.default.createElement(_Internet2.default, {
+          title: 'Sculpt',
+          tech: 'Design, Social, Photo, Dev',
+          roles: 'July 2013 - Dec 2014'
+        })
+      )
     )
   );
 };
@@ -22495,18 +22544,24 @@ exports.default = function (_ref) {
     _react2.default.createElement(
       'div',
       { className: 'internet pl1 mb2' },
-      _react2.default.createElement(
+      url ? _react2.default.createElement(
         _reactRouterDom.Link,
-        { to: url, target: '_blank' },
+        { to: url, onClick: function onClick(e) {
+            return window.scrollTo(0, 0);
+          } },
         _react2.default.createElement(
           'h4',
           { className: 'mv0' },
           title
         )
+      ) : _react2.default.createElement(
+        'h4',
+        { className: 'mv0' },
+        title
       ),
       _react2.default.createElement(
         'p',
-        { className: 'mv0 mt025' },
+        { className: 'mv025' },
         tech
       ),
       _react2.default.createElement(
@@ -22610,10 +22665,6 @@ var _reactHydrateLink2 = _interopRequireDefault(_reactHydrateLink);
 
 var _microGrid = __webpack_require__(28);
 
-var _scrollRestoration = __webpack_require__(373);
-
-var _scrollRestoration2 = _interopRequireDefault(_scrollRestoration);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (_ref) {
@@ -22648,86 +22699,7 @@ exports.default = function (_ref) {
 };
 
 /***/ }),
-/* 269 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Section = __webpack_require__(113);
-
-var _Section2 = _interopRequireDefault(_Section);
-
-var _reactHydrate = __webpack_require__(27);
-
-var _api = __webpack_require__(39);
-
-var _api2 = _interopRequireDefault(_api);
-
-var _Markdown = __webpack_require__(369);
-
-var _Markdown2 = _interopRequireDefault(_Markdown);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-exports.default = (0, _reactHydrate.hydrate)(function (props, state) {
-  var slug = props.match.params.slug;
-
-  return _api2.default.getEntries({
-    content_type: 'project',
-    'fields.slug': slug
-  }).then(function (_ref) {
-    var items = _ref.items;
-
-    return _defineProperty({}, slug, items[0].fields);
-  }).catch(function (err) {
-    return {
-      error: err
-    };
-  });
-}, function (state, props) {
-  var slug = props.match.params.slug;
-
-  var data = state[slug];
-
-  if (!data) return false;
-
-  return {
-    data: data
-  };
-})(function (_ref3) {
-  var loading = _ref3.loading,
-      data = _ref3.data,
-      props = _objectWithoutProperties(_ref3, ['loading', 'data']);
-
-  return _react2.default.createElement(
-    'div',
-    null,
-    loading ? _react2.default.createElement(
-      'h5',
-      null,
-      'Loading...'
-    ) : _react2.default.createElement(
-      _Section2.default,
-      { title: data.title },
-      _react2.default.createElement(_Markdown2.default, { string: data.readme })
-    )
-  );
-});
-
-/***/ }),
+/* 269 */,
 /* 270 */,
 /* 271 */,
 /* 272 */,
@@ -25026,6 +24998,175 @@ Prism.languages.js = Prism.languages.javascript;
 
 "use strict";
 var _extends=Object.assign||function(a){for(var c,b=1;b<arguments.length;b++)for(var d in c=arguments[b],c)Object.prototype.hasOwnProperty.call(c,d)&&(a[d]=c[d]);return a},scroll=function(a){return window.scrollTo(0,a)},state=function(){return history.state?history.state.scrollPosition:0},save=function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:null;window.history.replaceState(_extends({},window.history.state,{scrollPosition:a||window.pageYOffset||window.scrollY}),'')},restore=function(){var a=0<arguments.length&&arguments[0]!==void 0?arguments[0]:null,b=state();a?a(b):scroll(b)},init=function(){'scrollRestoration'in history&&(history.scrollRestoration='manual',scroll(state()),window.onbeforeunload=function(){return save()})};Object.defineProperty(exports,'__esModule',{value:!0});exports.default='undefined'==typeof window?{}:{init:init,save:save,restore:restore,state:state};
+
+/***/ }),
+/* 374 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Section = __webpack_require__(113);
+
+var _Section2 = _interopRequireDefault(_Section);
+
+var _Projects = __webpack_require__(267);
+
+var _Projects2 = _interopRequireDefault(_Projects);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (props) {
+  return _react2.default.createElement(
+    _Section2.default,
+    { title: 'Open Source' },
+    _react2.default.createElement(_Projects2.default, null)
+  );
+};
+
+/***/ }),
+/* 375 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Section = __webpack_require__(113);
+
+var _Section2 = _interopRequireDefault(_Section);
+
+var _reactHydrate = __webpack_require__(27);
+
+var _api = __webpack_require__(39);
+
+var _api2 = _interopRequireDefault(_api);
+
+var _Markdown = __webpack_require__(369);
+
+var _Markdown2 = _interopRequireDefault(_Markdown);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+exports.default = (0, _reactHydrate.hydrate)(function (props, state) {
+  var slug = props.match.params.slug;
+
+  return _api2.default.getEntries({
+    content_type: 'project',
+    'fields.slug': slug
+  }).then(function (_ref) {
+    var items = _ref.items;
+
+    return _defineProperty({}, slug, items[0].fields);
+  }).catch(function (err) {
+    return {
+      error: err
+    };
+  });
+}, function (state, props) {
+  var slug = props.match.params.slug;
+
+  var data = state[slug];
+
+  if (!data) return false;
+
+  return {
+    data: data
+  };
+})(function (_ref3) {
+  var loading = _ref3.loading,
+      data = _ref3.data,
+      props = _objectWithoutProperties(_ref3, ['loading', 'data']);
+
+  return _react2.default.createElement(
+    'div',
+    null,
+    loading ? _react2.default.createElement(
+      'h5',
+      null,
+      'Loading...'
+    ) : _react2.default.createElement(
+      _Section2.default,
+      { title: data.title },
+      _react2.default.createElement(_Markdown2.default, { string: data.readme })
+    )
+  );
+});
+
+/***/ }),
+/* 376 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactHydrateLink = __webpack_require__(368);
+
+var _reactHydrateLink2 = _interopRequireDefault(_reactHydrateLink);
+
+var _Layout = __webpack_require__(111);
+
+var _IconButtons = __webpack_require__(256);
+
+var _IconButtons2 = _interopRequireDefault(_IconButtons);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (props) {
+  return _react2.default.createElement(
+    'footer',
+    { className: 'bg-black white' },
+    _react2.default.createElement(
+      _Layout.Outer,
+      null,
+      _react2.default.createElement(
+        _Layout.Container,
+        null,
+        _react2.default.createElement(
+          'div',
+          { className: 'pv1 flex flex-items-center flex-justify-between' },
+          _react2.default.createElement(
+            _reactHydrateLink2.default,
+            { to: '/' },
+            _react2.default.createElement(
+              'h2',
+              { className: 'h5 mv0' },
+              'estrattonbailey'
+            )
+          ),
+          _react2.default.createElement(_IconButtons2.default, null)
+        )
+      )
+    )
+  );
+};
 
 /***/ })
 /******/ ]);
