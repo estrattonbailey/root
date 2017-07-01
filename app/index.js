@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
+import scroller from 'scroll-restoration'
 
 import App from './App'
 import { Tap } from 'react-hydrate'
@@ -11,6 +12,8 @@ import { Tap } from 'react-hydrate'
 if (module.hot && process && process.env.NODE_ENV !== 'production') {
   module.hot.accept()
 }
+
+scroller.init()
 
 /**
  * Other app code goes below
