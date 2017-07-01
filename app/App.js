@@ -1,6 +1,8 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
 
+import { Outer, Container } from 'Components/Layout'
+import Header from 'Components/Header'
 import Home from 'Pages/Home'
 import ProjectPage from 'Pages/ProjectPage'
 
@@ -13,10 +15,14 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <div>
-        <Route exact path='/' component={Home} />
-        <Route path='/oss/:slug' component={ProjectPage} />
-      </div>
+      <Outer>
+        <Container>
+          <Header />
+
+          <Route exact path='/' component={Home} />
+          <Route path='/oss/:slug' component={ProjectPage} />
+        </Container>
+      </Outer>
     )
   }
 }

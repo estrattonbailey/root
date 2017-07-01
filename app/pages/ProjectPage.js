@@ -1,6 +1,4 @@
 import React from 'react'
-import { Outer, Container } from 'Components/Layout'
-import Header from 'Components/Header'
 import Section from 'Components/Section'
 import { hydrate } from 'react-hydrate'
 import api from 'Util/api'
@@ -38,18 +36,15 @@ export default hydrate(
 )(
   ({ loading, data, ...props }) => {
     return (
-      <Outer>
-        <Container>
-          <Header />
-          {loading ? (
-            <h5>Loading...</h5>
-          ) : (
-            <Section title={data.title}>
-              <Markdown string={data.readme} />
-            </Section>
-          )}
-        </Container>
-      </Outer>
+      <div>
+        {loading ? (
+          <h5>Loading...</h5>
+        ) : (
+          <Section title={data.title}>
+            <Markdown string={data.readme} />
+          </Section>
+        )}
+      </div>
     )
   }
 )

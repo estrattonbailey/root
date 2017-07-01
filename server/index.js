@@ -31,9 +31,9 @@ const port = PORT || 8888
 
 const staticPath = PRODUCTION ? path.join(__dirname, '../public') : path.join(__dirname, '../dist/public')
 
-app.use('*', cors())
 app.use(compression())
 app.use('/public', express.static(staticPath, { maxage: PRODUCTION ? 86400000 : 0 }))
+app.use('*', cors())
 
 app.use(router)
 
