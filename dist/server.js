@@ -22018,6 +22018,10 @@ var _ProjectPage = __webpack_require__(214);
 
 var _ProjectPage2 = _interopRequireDefault(_ProjectPage);
 
+var _MicroGrid = __webpack_require__(218);
+
+var _MicroGrid2 = _interopRequireDefault(_MicroGrid);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22025,6 +22029,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var demos = {
+  'micro-grid': _MicroGrid2.default
+};
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -22049,7 +22057,10 @@ var App = function (_React$Component) {
           null,
           _react2.default.createElement(_Header2.default, null),
           _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
-          _react2.default.createElement(_reactRouterDom.Route, { path: '/oss/:slug', component: _ProjectPage2.default })
+          _react2.default.createElement(_reactRouterDom.Route, { path: '/oss/:slug', render: function render(props) {
+              var Render = demos[props.match.params.slug] || _ProjectPage2.default;
+              return _react2.default.createElement(Render, props);
+            } })
         )
       );
     }
@@ -22707,6 +22718,48 @@ module.exports = require("marked");
 /***/ (function(module, exports) {
 
 module.exports = require("prismjs");
+
+/***/ }),
+/* 218 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Section = __webpack_require__(86);
+
+var _Section2 = _interopRequireDefault(_Section);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import { hydrate } from 'react-hydrate'
+// import api from 'Util/api'
+
+// import Markdown from 'Components/Markdown'
+
+exports.default = function (props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      _Section2.default,
+      { title: 'Micro Grid' },
+      _react2.default.createElement(
+        'h1',
+        null,
+        'hello'
+      )
+    )
+  );
+};
 
 /***/ })
 /******/ ]);

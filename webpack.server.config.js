@@ -55,6 +55,7 @@ module.exports = {
   resolve: {
     alias: {
       Components: path.join(__dirname, 'app/components'),
+      Demos: path.join(__dirname, 'app/demos'),
       Pages: path.join(__dirname, 'app/pages'),
       Icons: path.join(__dirname, 'app/icons'),
       Util: path.join(__dirname, 'app/util'),

@@ -6,6 +6,12 @@ import Header from 'Components/Header'
 import Home from 'Pages/Home'
 import ProjectPage from 'Pages/ProjectPage'
 
+import MicroGrid from 'Demos/MicroGrid'
+
+const demos = {
+  'micro-grid': MicroGrid
+}
+
 export default class App extends React.Component {
   constructor (p) {
     super(p)
@@ -20,7 +26,10 @@ export default class App extends React.Component {
           <Header />
 
           <Route exact path='/' component={Home} />
-          <Route path='/oss/:slug' component={ProjectPage} />
+          <Route path='/oss/:slug' render={props => {
+            const Render = demos[props.match.params.slug] || ProjectPage
+            return <Render {...props} />
+          }} />
         </Container>
       </Outer>
     )

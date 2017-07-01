@@ -8,6 +8,7 @@
       'root': ['.'],
       'alias': {
         'Components': 'app/components',
+        'Demos': 'app/demos',
         'Pages': 'app/pages',
         'Icons': 'app/icons',
         'Util': 'app/util',
