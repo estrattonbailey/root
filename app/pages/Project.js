@@ -1,9 +1,8 @@
 import React from 'react'
-import Section from 'Components/Section'
 import { hydrate } from 'react-hydrate'
 import api from 'Util/api'
-
 import Markdown from 'Components/Markdown'
+import RelatedProjects from 'Components/RelatedProjects'
 
 export default hydrate(
   (props, state) => {
@@ -35,15 +34,17 @@ export default hydrate(
   }
 )(
   ({ loading, data, ...props }) => {
+    if (loading) return null
+
     return (
       <div>
-        {loading ? (
-          <h5>Loading...</h5>
-        ) : (
-          <Section title={data.title}>
+        <div>
+          <div className='pv2'>
             <Markdown string={data.readme} />
-          </Section>
-        )}
+          </div>
+
+          <RelatedProjects projects={data.related.map(o => o.fields)} />
+        </div>
       </div>
     )
   }
