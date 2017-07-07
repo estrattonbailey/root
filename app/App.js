@@ -2,7 +2,6 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import scroller from 'scroll-restoration'
 
-import { Outer, Container } from 'Components/Layout'
 import Header from 'Components/Header'
 import Footer from 'Components/Footer'
 import Home from 'Pages/Home'
@@ -38,26 +37,18 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <Route render={props => {
-        return (
-          <div>
-            <Outer>
-              <Container>
-                <Header />
+      <div>
+        <Header />
 
-                <Route exact path='/' component={Home} />
-                <Route exact path='/oss' component={Projects} />
-                <Route path='/oss/:slug' render={props => {
-                  const Render = demos[props.match.params.slug] || Project
-                  return <Render {...props} />
-                }} />
-              </Container>
-            </Outer>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/oss' component={Projects} />
+        <Route path='/oss/:slug' render={props => {
+          const Render = demos[props.match.params.slug] || Project
+          return <Render {...props} />
+        }} />
 
-            <Footer />
-          </div>
-        )
-      }} />
+        <Footer />
+      </div>
     )
   }
 }

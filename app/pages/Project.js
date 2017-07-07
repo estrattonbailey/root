@@ -3,6 +3,7 @@ import { hydrate } from 'react-hydrate'
 import api from 'Util/api'
 import Markdown from 'Components/Markdown'
 import RelatedProjects from 'Components/RelatedProjects'
+import { Outer, Container } from 'Components/Layout'
 
 export default hydrate(
   (props, state) => {
@@ -38,13 +39,16 @@ export default hydrate(
 
     return (
       <div>
-        <div>
-          <div className='pv2'>
-            <Markdown string={data.readme} />
-          </div>
+        <Outer>
+          <Container>
+            <div className='pv2'>
+              <Markdown string={data.readme} />
+            </div>
 
-          <RelatedProjects projects={data.related.map(o => o.fields)} />
-        </div>
+          </Container>
+        </Outer>
+
+        <RelatedProjects projects={data.related.map(o => o.fields)} />
       </div>
     )
   }
