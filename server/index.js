@@ -38,5 +38,5 @@ app.use('*', cors())
 app.use(router)
 
 app.listen(port, e => {
-  console.log(`Frame server running on port ${port}`)
+  console.log(`@estrattonbailey/root running on port ${port}`)
 })

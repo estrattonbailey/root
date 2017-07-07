@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Box } from 'micro-grid'
 
 export default ({ title, tech, roles, url }) => (
@@ -10,9 +9,9 @@ export default ({ title, tech, roles, url }) => (
   ]}>
     <div className='internet pl1 mb2'>
       {url ? (
-        <Link to={url} onClick={e => window.scrollTo(0, 0)}>
+        <a href={url} target='_blank'>
           <h4 className='mv0'>{title}</h4>
-        </Link>
+        </a>
       ) : (
         <h4 className='mv0'>{title}</h4>
       )}

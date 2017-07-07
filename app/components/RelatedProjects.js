@@ -10,10 +10,10 @@ export default ({ projects }) => projects ? (
       <Container>
         <div className='flex flex-items-end flex-justify-between mt1'>
           <h3 className='mv0'>Related Projects</h3>
-          <Link to='/projects' className='h6 bold uppercase'>See all ▶︎</Link>
+          <Link to='/oss' className='h6 bold uppercase'>See all ▶︎</Link>
         </div>
 
-        <hr className='mv2'/>
+        <hr className='mv2' />
 
         <Flex gutter={1.5} wrap>
           {projects.map(i => (

@@ -1,10 +1,9 @@
 {
-  "name": "frame",
+  "name": "@estrattonbailey/root",
   "version": "0.0.1",
-  "description": "",
-  "main": "app/index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "node dist/server.js",
+    "start": "NODE_ENV=production node server.js",
     "build": "npm run build:js && npm run build:css && npm run build:server",
     "dev": "concurrently 'npm run watch:js' 'npm run watch:css' 'npm run watch:serve'",
     "serve": "node dist/server.js",
