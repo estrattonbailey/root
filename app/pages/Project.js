@@ -37,18 +37,23 @@ export default hydrate(
   ({ loading, data, ...props }) => {
     if (loading) return null
 
+    const {
+      readme,
+      related
+    } = data
+
     return (
       <div>
         <Outer>
           <Container>
             <div className='pv2'>
-              <Markdown string={data.readme} />
+              <Markdown string={readme} />
             </div>
 
           </Container>
         </Outer>
 
-        <RelatedProjects projects={data.related.map(o => o.fields)} />
+        {related && <RelatedProjects projects={related.map(o => o.fields)} />}
       </div>
     )
   }

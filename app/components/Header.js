@@ -3,13 +3,13 @@ import IconButtons from 'Components/IconButtons'
 import { hydrate } from 'react-hydrate'
 import api from 'Util/api'
 import { Link } from 'react-router-dom'
-import { Outer, Container } from 'Components/Layout'
+import { Container } from 'Components/Layout'
 
 const Header = ({ loading, bio }) => {
   return (
-    <Outer>
+    <div className='ph2 pt2'>
       <Container>
-        <header className='header'>
+        <header className='header mt2'>
           <Link to='/'><h2 className='h4 mv0'>estrattonbailey</h2></Link>
           <p className='mt025 mb025'>{loading ? 'Loading bio...' : bio}</p>
           <div className='mhn05'>
@@ -19,7 +19,7 @@ const Header = ({ loading, bio }) => {
           <hr className='mt1' />
         </header>
       </Container>
-    </Outer>
+    </div>
   )
 }
 
