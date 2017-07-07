@@ -1,0 +1,6 @@
+.hero {
+  height: 100vh;
+}
+.hero__title {
+  max-width: 500px;
+}

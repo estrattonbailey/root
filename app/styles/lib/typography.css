@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Roboto+Mono:400,400i,700,700i');
 
 body {
-	color: #000;
-	font-family: Helvetica, Arial, sans-serif;
+	color: var(--black);
+	font-family: 'Karla', Helvetica, Arial, sans-serif;
 	font-size: 90%;
   line-height: 1.7;
   font-weight: 400;
@@ -18,115 +18,93 @@ body, .roboto, pre, code {
 p, .karla {
   font-family: 'Karla', sans-serif;
 }
-h1, h2, h3, h4, h5, h6 {
-  margin: 1em 0 .6em;
-}
+
 h1, h2, h3, h4, h5, h6, p {
   max-width: 50em;
 }
-.scale1,
+
+.s1,
 h1, .h1 {
   font-size: calc((48/16)*1rem);
 }
 h1, .h1 { 
   line-height: 1.1;
 }
-.scale2,
+.s2,
 h2, .h2 { 
   font-size: calc((32/16)*1rem);
 }
 h2, .h2 { 
   line-height: 1.3;
 }
-.scale3,
+.s3,
 h3, .h3 { 
   font-size: calc((24/16)*1rem);
 }
 h3, .h3 { 
   line-height: 1.5;
 }
-.scale4,
+.s4,
 h4, .h4 { 
   font-size: calc((20/16)*1rem);
 }
 h4, .h4 { 
   line-height: 1.5;
 }
-.scale5,
+.s5,
 h5, .h5 { 
   font-size: calc((16/16)*1rem);
 }
 h5, .h5 { 
   line-height: 1.6;
 }
-.scale6,
+.s6,
 h6, .h6 { 
   font-size: calc((14/16)*1rem);
 }
 h6, .h6 { 
   line-height: 1.6;
 }
-.scale0,
+.s0,
 p, .p { 
   font-size: 1rem;
 }
-p, .p {
+p, .p { 
   line-height: 1.7;
 }
-p {
-  margin: 1.5em 0
+p { 
+  margin: 1em 0
 }
 a {
+  display: inline-block;
   color: inherit;
   text-decoration: none;
+
+  &:hover {
+    background-image: linear-gradient(-90deg, #47EAFF, #47FFA6)
+  }
 }
 hr {
   display: block;
-  margin: 0;
   border: 0;
-  height: 5px;
+  margin: 0;
+  height: 8px;
   width: 100%;
   background-color: currentColor;
   color: inherit;
 }
-.small, small {
-  font-size: 0.75rem;
+small, .small {
+  font-size: 0.75em;
 }
-strong {
+strong, .b {
   font-weight: bold;
 }
-.type--reset {
-  margin: 0;
-  line-height: 1;
-}
-.italic {
+em, .i {
   font-style: italic;
 }
-.light {
-  font-weight: 100;
-}
-.medium {
-  font-weight: 500;
-}
-.bold {
-  font-weight: 900;
-}
-.uppercase {
+.caps {
   text-transform: uppercase;
 }
-.underline {
-  text-decoration: underline;
-}
-.decoration--none {
+.no-under {
   text-decoration: none;
-}
-
-pre, code {
-  font-size: 0.9em;
-}
-pre {
-  background: var(--black);
-  padding: 1.5em;
-  overflow: auto;
-  color: #76d9e6;
 }

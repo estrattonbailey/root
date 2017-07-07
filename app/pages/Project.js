@@ -4,6 +4,11 @@ import api from 'Util/api'
 import Markdown from 'Components/Markdown'
 import RelatedProjects from 'Components/RelatedProjects'
 import { Outer, Container } from 'Components/Layout'
+import Head from 'Components/Head'
+
+import ProjectHeader from 'Components/ProjectHeader'
+import ProjectHero from 'Components/ProjectHero'
+import ProjectHeroTitle from 'Components/ProjectHeroTitle'
 
 export default hydrate(
   (props, state) => {
@@ -39,17 +44,28 @@ export default hydrate(
 
     const {
       readme,
-      related
+      caption,
+      related,
+      url
     } = data
+
+    const title = props.match.params.slug
 
     return (
       <div>
+        <Head title={title} description={caption} />
+
+        <ProjectHeader path={title} />
+
+        <ProjectHero projectURL={url}>
+          <ProjectHeroTitle {...data} />
+        </ProjectHero>
+
         <Outer>
           <Container>
-            <div className='pv2'>
+            <div className='pt1 pb2'>
               <Markdown string={readme} />
             </div>
-
           </Container>
         </Outer>
 

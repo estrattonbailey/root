@@ -50,8 +50,12 @@ module.exports = {
   ],
   devServer: {
     hot: true,
-    contentBase: path.join(__dirname, 'dist/public'),
+    contentBase: path.join(__dirname, 'dist'),
     publicPath: '/',
-    compress: true
+    compress: true,
+    port: 8888,
+    historyApiFallback: {
+      index: 'index.html'
+    }
   }
 }

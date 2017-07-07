@@ -20,7 +20,7 @@ scroller.init()
  */
 render((
   <Router>
-    <Tap hydrate={window.__state || null}>
+    <Tap hydrate={window.__state || {}}>
       <App />
     </Tap>
   </Router>

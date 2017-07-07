@@ -1,4 +1,4 @@
-module.exports = (content, state, css) =>
+module.exports = (content, state, css, head) =>
 `<html>
   <head>
     <meta charset="UTF-8"/>
@@ -7,27 +7,12 @@ module.exports = (content, state, css) =>
 
     <link rel="icon" href="/favicon.png" type="image/png"></link>
 
-    <meta name="description" content=""/>
-
-    <meta property="og:url" content=""/>
-    <meta property="og:site_name" content=""/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:title" content=""/>
-    <meta property="og:description" content=""/>
-    <meta property="og:image" content=""/>
-
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:site" content=""/>
-    <meta name="twitter:url" content=""/>
-    <meta name="twitter:title" content=""/>
-    <meta name="twitter:description" content=""/>
-    <meta name="twitter:image" content=""/>
-
     <link href="/public/main.css" rel="stylesheet" type="text/css"></link>
 
     <style id="grid-style">${css}</style>
 
-    <title>@estrattonbailey/frame</title>
+    ${head.meta.toString()}
+    ${head.title.toString()}
   </head>
   <body>
     <div id="root">${content}</div>

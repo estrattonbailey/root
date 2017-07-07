@@ -1,6 +1,7 @@
 const React = require('react')
 const { renderToString } = require('react-dom/server')
 const { StaticRouter: Router } = require('react-router')
+const Helmet = require('react-helmet').default
 
 const html = require('./html.js')
 const App = require('../app/App.js').default
@@ -28,7 +29,8 @@ module.exports = (req, res) => {
     res.end()
   } else {
     store.fetch().then(state => {
-      res.send(html(render(), state, getCSS()))
+      const head = Helmet.renderStatic()
+      res.send(html(render(), state, getCSS(), head))
       res.end()
       store.clearState()
     })

@@ -2,10 +2,13 @@
   --black: #2a2a2a;
   --white: #fff;
   --gray: #555;
+  --green: #47FFA6;
 }
 
 .black { color: var(--black) }
 .white { color: var(--white) }
 .gray { color: var(--gray) }
+.green { color: var(--green) }
 
 .bg-black { background-color: var(--black) }
+.bg-green { background-color: var(--green) }

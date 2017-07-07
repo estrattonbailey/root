@@ -2,7 +2,7 @@ import React from 'react'
 import IconButton from 'Components/IconButton'
 
 export default props => (
-  <div className='icon-buttons flex'>
+  <div className='icon-buttons f'>
     <IconButton href={'https://github.com/estrattonbailey'} icon={'Github'} />
     <IconButton href={'https://twitter.com/estrattonbailey'} icon={'Twitter'} />
     <IconButton href={'https://instagram.com/estrattonbailey'} icon={'Instagram'} />

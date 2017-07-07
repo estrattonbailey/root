@@ -8,9 +8,9 @@ export default ({ projects }) => projects ? (
   <div className='bg-black white'>
     <Outer>
       <Container>
-        <div className='flex flex-items-end flex-justify-between mt1'>
+        <div className='f aie jcb mt1'>
           <h3 className='mv0'>Related Projects</h3>
-          <Link to='/oss' className='h6 bold uppercase'>See all ▶︎</Link>
+          <Link to='/oss' className='h6 b caps'>See all ▶︎</Link>
         </div>
 
         <hr className='mv2' />

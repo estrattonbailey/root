@@ -1,31 +1,21 @@
+@import 'lib/reset';
 @import 'lib/breakpoints';
 @import 'lib/colors';
 @import 'lib/display';
 @import 'lib/positioning';
 @import 'lib/flexbox';
 @import 'lib/align';
-@import 'lib/floats';
 @import 'lib/z-index';
 @import 'lib/typography';
 @import 'lib/buttons';
-@import 'lib/forms';
 @import 'lib/lists';
-@import 'lib/tables';
 @import 'lib/spacing';
 
 @import 'components/icon-buttons';
 @import 'components/internet';
 @import 'components/code';
 @import 'components/footer';
-
-html, body {
-  padding: 0;
-  margin: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
+@import 'components/hero';
 
 .outer {
   padding: 1em;
@@ -43,4 +33,20 @@ html, body {
   &:focus {
     outline: 2px dashed var(--gray);
   }
+}
+
+.header--project {
+  .__text { opacity: 0.4 }
+  a {
+    transition: opacity 200ms ease-in-out;
+    opacity: 0.4;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.fill-h {
+  width: 100%;
 }

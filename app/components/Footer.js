@@ -7,7 +7,7 @@ export default props => (
   <footer className='bg-black white'>
     <Outer>
       <Container>
-        <div className='pv1 flex flex-items-center flex-justify-between'>
+        <div className='pv1 f aic jcb'>
           <Link to='/'><h2 className='h5 mv0'>estrattonbailey</h2></Link>
           <IconButtons />
         </div>

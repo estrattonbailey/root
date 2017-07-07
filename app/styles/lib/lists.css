@@ -1,39 +1,19 @@
-
 ol, ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
-/* To achieve list styling, */
-/* add the .list class */
-/* i.e ol.list, ul.list */
 .markdown ul,
 .markdown ol,
-.list ul,
-.list ol {
-  margin: 0;
-  padding-left: 1em;
+ul.list,
+ol.list {
+  padding-left: 2em;
 }
 .markdown ol,
-.list ol {
-  list-style: lower-alpha inside;
-  counter-reset: num;
+ol.list {
+  list-style: decimal;
 }
-.markdown li,
-.list li {
-  position: relative;
-  margin: .33em 0;
-  padding-left: 1.5em;
-}
-.markdown ol li::before {
-  content: counter(num) '.';
-  counter-increment: num;
-  display: block;
-  position: absolute;
-  left: 0; top: 0;
-}
-.markdown ul li::before {
-  content: '•';
-  display: block;
-  position: absolute;
-  left: 0; top: 0;
+.markdown ul,
+ul.list {
+  list-style: disc;
 }
