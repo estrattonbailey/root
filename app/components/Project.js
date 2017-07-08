@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'react-hydrate-link'
 import { Box } from 'micro-grid'
 
-export default ({ title, caption, url, slug }) => (
+export default ({ title, caption, slug }) => (
   <Box width={[
     [1],
     [600, 1 / 2],

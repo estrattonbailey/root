@@ -12,7 +12,7 @@ import ProjectHeroTitle from 'Components/ProjectHeroTitle'
 
 export default hydrate(
   (props, state) => {
-    const slug = props.match.params.slug
+    const slug = props.slug
 
     return api.getEntries({
       content_type: 'project',
@@ -28,7 +28,7 @@ export default hydrate(
     })
   },
   (state, props) => {
-    const slug = props.match.params.slug
+    const slug = props.slug
 
     const data = state[slug]
 
@@ -49,7 +49,7 @@ export default hydrate(
       url
     } = data
 
-    const title = props.match.params.slug
+    const title = props.slug
 
     return (
       <div>
@@ -69,7 +69,7 @@ export default hydrate(
           </Container>
         </Outer>
 
-        {related && <RelatedProjects projects={related.map(o => o.fields)} />}
+        {related && <RelatedProjects projects={related.filter(o => o.fields).map(o => o.fields)} />}
       </div>
     )
   }

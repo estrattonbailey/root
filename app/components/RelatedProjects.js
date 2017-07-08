@@ -4,7 +4,7 @@ import { Outer, Container } from 'Components/Layout'
 import { Flex } from 'micro-grid'
 import Project from 'Components/Project'
 
-export default ({ projects }) => projects ? (
+export default ({ projects }) => projects.length > 0 ? (
   <div className='bg-black white'>
     <Outer>
       <Container>

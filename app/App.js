@@ -33,7 +33,7 @@ export default class App extends React.Component {
       <div>
         <Route exact path='/' component={Home} />
         <Route exact path='/oss' component={Projects} />
-        <Route path='/oss/:slug' component={Project} />
+        <Route path='/oss/:slug' component={props => <Project slug={props.match.params.slug} />} />
 
         <Footer />
       </div>
