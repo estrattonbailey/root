@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Roboto+Mono:400,400i,700,700i');
 
+::selection {
+  background: var(--black);
+  color: white;
+}
+::-moz-selection {
+  background: var(--black);
+  color: white;
+}
+
 body {
 	color: var(--black);
 	font-family: 'Karla', Helvetica, Arial, sans-serif;
@@ -80,15 +89,27 @@ a {
   color: inherit;
   text-decoration: none;
 
-  &:hover {
-    background-image: linear-gradient(-90deg, #47EAFF, #47FFA6)
+  &:focus {
+    outline: 2px dashed currentColor;
   }
 }
+/* .grade-under { */
+/*   position: relative; */
+
+/*   &::after { */
+/*     content: ''; */
+/*     display: block; */
+/*     position: absolute; */
+/*     bottom: -2px; left: 0; right: 0; */
+/*     height: 4px; */
+/*     background-image: linear-gradient(-90deg, #47EAFF, #47FFA6); */
+/*   } */
+/* } */
 hr {
   display: block;
   border: 0;
   margin: 0;
-  height: 8px;
+  height: 6px;
   width: 100%;
   background-color: currentColor;
   color: inherit;
@@ -107,4 +128,10 @@ em, .i {
 }
 .no-under {
   text-decoration: none;
+}
+
+.markdown {
+  a {
+    text-decoration: underline;
+  }
 }

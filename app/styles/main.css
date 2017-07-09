@@ -1,3 +1,4 @@
+@import 'lib/vars';
 @import 'lib/reset';
 @import 'lib/breakpoints';
 @import 'lib/colors';
@@ -13,20 +14,31 @@
 
 @import 'components/icon-buttons';
 @import 'components/internet';
+@import 'components/project';
 @import 'components/code';
 @import 'components/footer';
 @import 'components/hero';
 
+html {
+  background-image: linear-gradient(-90deg, #47EAFF, #47FFA6);
+}
+body {
+  background-color: white;
+  margin-top: 6px;
+}
+
 .outer {
-  padding: 1em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
 
   @media (--m) {
-    padding: 2em;
+    padding-left: 4rem;
+    padding-right: 4rem;
   }
 }
 
 .container {
-  max-width: 1300px;
+  max-width: 1200px;
 }
 
 .focus {

@@ -1,3 +1,11 @@
+const { stringify } = require('circular-json')
+
+export const toString = obj => stringify(obj)
+  .replace(/<\/(script)/ig, '<\\/$1')
+  .replace(/<!--/g, '<\\!--')
+  .replace(/\u2028/g, '\\u2028')
+  .replace(/\u2029/g, '\\u2029')
+
 module.exports = (content, state, css, head) =>
 `<html>
   <head>
@@ -17,7 +25,7 @@ module.exports = (content, state, css, head) =>
   <body>
     <div id="root">${content}</div>
     <script>
-      window.__state = ${JSON.stringify(state)}
+      window.__state = ${toString(state)}
     </script>
     <script src="/public/index.js"></script>
   </body>

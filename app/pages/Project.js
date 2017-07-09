@@ -63,7 +63,7 @@ export default hydrate(
 
         <Outer>
           <Container>
-            <div className='pt1 pb2'>
+            <div className='pv2'>
               <Markdown string={readme} />
             </div>
           </Container>

@@ -4,7 +4,7 @@ import { Outer, Container } from 'Components/Layout'
 import IconButtons from 'Components/IconButtons'
 
 export default props => (
-  <footer className='bg-black white'>
+  <footer className='bg-black white pv1'>
     <Outer>
       <Container>
         <div className='pv1 f aic jcb'>

@@ -15,6 +15,19 @@ fs.readdirSync('node_modules')
     nodeModules[mod] = 'commonjs ' + mod;
   });
 
+/**
+ * @see https://github.com/developit/preact-compat/issues/299#issuecomment-280518184
+ */
+function getExternals() {
+  const excludes = [ 'react-router', 'react-redux', 'react' ];
+  return fs.readdirSync('node_modules')
+    .filter((x) => !~excludes.indexOf(x))
+    .reduce((nodeModules, mod) => {
+      nodeModules[mod] = 'commonjs ' + mod;
+      return nodeModules;
+    }, {});
+}
+
 module.exports = {
   target: 'node',
   devtool: 'source-map',

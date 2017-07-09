@@ -25,7 +25,7 @@ export default props => (
           <Flex gutter={1.5} wrap>
             <Internet {...{
               title: 'Freelance',
-              tech: 'React, GraphQL, Wordpress REST API, Node.js',
+              tech: 'React, GraphQL, Node.js, Shopify',
               roles: 'May 2017 - preset'
             }} />
             <Internet {...{

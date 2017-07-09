@@ -5,12 +5,12 @@ import { Flex } from 'micro-grid'
 import Project from 'Components/Project'
 
 export default ({ projects }) => projects.length > 0 ? (
-  <div className='bg-black white'>
+  <div className='bg-black white pv2'>
     <Outer>
       <Container>
-        <div className='f aie jcb mt1'>
-          <h3 className='mv0'>Related Projects</h3>
-          <Link to='/oss' className='h6 b caps'>See all ▶︎</Link>
+        <div className='f fw aie jcb mt1'>
+          <h3 className='mv0 mr2'>Related Libraries</h3>
+          <Link to='/oss' className='h6 b caps mb025'>See all ▶︎</Link>
         </div>
 
         <hr className='mv2' />

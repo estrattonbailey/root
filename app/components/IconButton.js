@@ -7,7 +7,7 @@ export default ({ href, icon }) => {
 
   return (
     <a href={href} target='_blank' className='icon-button px05 focus block rel'>
-      <SVG className='abs fill mxa' />
+      {SVG && <SVG className='abs fill mxa' />}
     </a>
   )
 }
