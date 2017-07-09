@@ -4,14 +4,11 @@ import { hydrate } from 'react-hydrate'
 import api from 'Util/api'
 import Link from 'react-hydrate-link'
 import { Outer, Container } from 'Components/Layout'
-import Head from 'Components/Head'
 
 const Header = ({ loading, bio }) => {
   return (
     <div className='pt2'>
       <Outer>
-        <Head title='root' description={bio} />
-
         <Container>
           <header className='header mt2'>
             <h2 className='h4 mv0 inline-block'><Link to='/'>estrattonbailey</Link></h2>

@@ -19,6 +19,10 @@ module.exports = (content, state, css, head) =>
 
     <style id="grid-style">${css}</style>
 
+    <meta property='og:site_name' content='@estrattonbailey' />
+    <meta property='og:type' content='website' />
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:site' content='@estrattonbailey' />
     ${head.meta.toString()}
     ${head.title.toString()}
   </head>

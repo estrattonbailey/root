@@ -4,7 +4,7 @@ import api from 'Util/api'
 import Markdown from 'Components/Markdown'
 import RelatedProjects from 'Components/RelatedProjects'
 import { Outer, Container } from 'Components/Layout'
-import Head from 'Components/Head'
+import Head from 'react-helmet'
 
 import ProjectHeader from 'Components/ProjectHeader'
 import ProjectHero from 'Components/ProjectHero'
@@ -53,7 +53,14 @@ export default hydrate(
 
     return (
       <div>
-        <Head title={title} description={caption} />
+        <Head>
+          <title>{`@estrattonbailey/${title}`}</title>
+          <meta property='og:title' content={title} />
+          <meta name='twitter:title' content={title} />
+          <meta name='description' content={caption} />
+          <meta property='og:description' content={caption} />
+          <meta name='twitter:description' content={caption} />
+        </Head>
 
         <ProjectHeader path={title} />
 

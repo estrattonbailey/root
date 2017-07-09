@@ -15,9 +15,9 @@ export default ({ title, caption, version, size, url }) => {
             <p className='mv075 s4'>{caption}</p>
 
             <div className='f aic mt1'>
-              <a href={url} target='_blank' className='button mr1' role='button'>
+              <a href={url} target='_blank' className='button mr2' role='button'>
                 <div className='f aic'>
-                  <Github /><span className='ml1'>Source on Github</span>
+                  <Github /><span className='ml1 mb025'>Source</span>
                 </div>
               </a>
               {(version || size) && (

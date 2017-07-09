@@ -29,8 +29,9 @@ module.exports = (req, res) => {
     res.end()
   } else {
     store.fetch().then(state => {
+      const content = render()
       const head = Helmet.renderStatic()
-      res.send(html(render(), state, getCSS(), head))
+      res.send(html(content, state, getCSS(), head))
       res.end()
       store.clearState()
     })

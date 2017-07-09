@@ -34,7 +34,10 @@ h1, h2, h3, h4, h5, h6, p {
 
 .s1,
 h1, .h1 {
-  font-size: calc((48/16)*1rem);
+  font-size: calc((38/16)*1rem);
+  @media (--m) {
+    font-size: calc((48/16)*1rem);
+  }
 }
 h1, .h1 { 
   line-height: 1.1;
