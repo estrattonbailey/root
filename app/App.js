@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import scroller from 'scroll-restoration'
 import { hydrate } from 'react-hydrate'
 import Head from 'react-helmet'
@@ -8,6 +8,7 @@ import Footer from 'Components/Footer'
 import Home from 'Pages/Home'
 import Projects from 'Pages/Projects'
 import Project from 'Pages/Project'
+import NoMatch from 'Pages/NoMatch'
 
 class App extends React.Component {
   constructor (p) {
@@ -49,9 +50,12 @@ class App extends React.Component {
               <meta property='og:image' content={ogImage} />
             </Head>
 
-            <Route exact path='/' component={Home} />
-            <Route exact path='/oss' component={Projects} />
-            <Route path='/oss/:slug' component={props => <Project slug={props.match.params.slug} />} />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/oss' component={Projects} />
+              <Route path='/oss/:slug' component={props => <Project slug={props.match.params.slug} />} />
+              <Route component={NoMatch} />
+            </Switch>
 
             <Footer />
           </div>
