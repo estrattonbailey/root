@@ -6,7 +6,7 @@ const Helmet = require('react-helmet').default
 const html = require('./html.js')
 const App = require('../app/App.js').default
 const { Tap, createStore } = require('react-hydrate')
-const asyncRender = require('react-hydrate/server')
+const { asyncRender } = require('react-hydrate/dist/server')
 const { getCSS } = require('micro-grid')
 
 module.exports = (req, res) => {
