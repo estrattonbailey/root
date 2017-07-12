@@ -10,6 +10,13 @@ import Projects from 'Pages/Projects'
 import Project from 'Pages/Project'
 import NoMatch from 'Pages/NoMatch'
 
+const PageView = ({ pathname }) => {
+  if (typeof window !== 'undefined' && window.ga) {
+    window.ga('send', 'pageView', pathname)
+  }
+  return null
+}
+
 class App extends React.Component {
   constructor (p) {
     super(p)
@@ -37,6 +44,8 @@ class App extends React.Component {
       <Route component={props => {
         return (
           <div>
+            <PageView pathname={props.location.pathname} />
+
             <Head>
               <title>{`@estrattonbailey`}</title>
               <meta property='og:title' content='Eric Bailey' />
