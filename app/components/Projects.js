@@ -5,9 +5,9 @@ import { hydrate } from 'react-hydrate'
 
 import api from 'Util/api'
 
-const Projects = ({ projects }) => (
+const Projects = ({ loading, data }) => loading ? null : (
   <Flex gutter={1.5} wrap>
-    {projects && projects.map(i => (
+    {data.projects && data.projects.map(i => (
       <Project {...i} key={i.url} />
     ))}
   </Flex>
@@ -26,5 +26,8 @@ export default hydrate(
   },
   state => ({
     projects: state.projects
-  })
+  }),
+  {
+    ssr: false
+  }
 )(Projects)

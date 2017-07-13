@@ -47,7 +47,7 @@ export default hydrate(
       caption,
       related,
       url
-    } = data
+    } = data.data
 
     const title = props.slug
 
@@ -65,7 +65,7 @@ export default hydrate(
         <ProjectHeader path={title} />
 
         <ProjectHero projectURL={url}>
-          <ProjectHeroTitle {...data} />
+          <ProjectHeroTitle {...data.data} />
         </ProjectHero>
 
         <Outer>

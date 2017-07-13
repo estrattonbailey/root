@@ -4,10 +4,12 @@ import Internet from 'Components/Internet'
 import { hydrate } from 'react-hydrate'
 import api from 'Util/api'
 
-const Internets = ({ internets }) => {
+const Internets = ({ loading, data }) => {
+  if (loading) return null
+
   return (
     <Flex gutter={1.5} wrap>
-      {internets && internets.map(i => (
+      {data.internets && data.internets.map(i => (
         <Internet {...i} key={i.url} />
       ))}
     </Flex>

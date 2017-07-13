@@ -5,14 +5,14 @@ import api from 'Util/api'
 import Link from 'react-hydrate-link'
 import { Outer, Container } from 'Components/Layout'
 
-const Header = ({ loading, bio }) => {
+const Header = ({ loading, data }) => {
   return (
     <div className='pt2'>
       <Outer>
         <Container>
           <header className='header mt2'>
             <h2 className='h4 mv0 inline-block'><Link to='/'>estrattonbailey</Link></h2>
-            <p className='mt025 mb025'>{loading ? 'Loading bio...' : bio}</p>
+            <p className='mt025 mb025'>{loading ? 'Loading bio...' : data.bio}</p>
             <IconButtons />
 
             <hr className='mt1' />
