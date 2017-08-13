@@ -16,6 +16,7 @@ input.button[type="submit"] {
   background-color: var(--black);
   font-size: calc((14/16)*1rem);
   transition: background-color 100ms var(--ease);
+  border-radius: 3px;
 
   &:hover {
     background-color: #333;

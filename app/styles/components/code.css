@@ -1,4 +1,4 @@
-/* @import 'syntaxes/gh'; */
+@import 'syntaxes/xonokai';
 
 pre, code {
   font-size: 0.9em;
@@ -7,12 +7,5 @@ pre {
   padding: 1.5em;
   overflow: auto;
   border: 0 !important;
-  border-left: 4px solid whitesmoke !important;
-
-  code {
-    background-color: transparent;
-  }
-}
-code {
-  background-color: whitesmoke;
+  border-radius: 3px;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex } from 'micro-grid'
+import { Flex } from 'ffx'
 import Internet from 'Components/Internet'
 import { hydrate } from 'react-hydrate'
 import api from 'Util/api'

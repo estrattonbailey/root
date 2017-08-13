@@ -2,9 +2,9 @@ import React from 'react'
 import Link from 'react-hydrate-link'
 import { Outer, Container } from 'Components/Layout'
 
-const ProjectHeader = ({ path }) => {
+const HeaderLite = ({ path, className }) => {
   return (
-    <div className='abs top left right'>
+    <div className={className}>
       <div className='pt2'>
         <Outer>
           <Container>
@@ -22,4 +22,4 @@ const ProjectHeader = ({ path }) => {
   )
 }
 
-export default ProjectHeader
+export default HeaderLite

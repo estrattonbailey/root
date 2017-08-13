@@ -1,10 +1,10 @@
 import React from 'react'
-import ProjectHeader from 'Components/ProjectHeader'
+import HeaderLite from 'Components/HeaderLite'
 import ProjectHeroTitle from 'Components/ProjectHeroTitle'
 
 export default props => (
   <section className='hero f aic'>
-    <ProjectHeader path='404' />
+    <HeaderLite path='404' className='abs left top right' />
 
     <ProjectHeroTitle
       title='Dun dun dun'

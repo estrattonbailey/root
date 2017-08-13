@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'react-hydrate-link'
-import { Box } from 'micro-grid'
+import { Box } from 'ffx'
 import scroller from 'scroll-restoration'
 
 export default ({ title, caption, slug }) => (

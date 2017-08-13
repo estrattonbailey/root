@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex } from 'micro-grid'
+import { Flex } from 'ffx'
 import Project from 'Components/Project'
 import { hydrate } from 'react-hydrate'
 

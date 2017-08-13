@@ -8,6 +8,8 @@ import Footer from 'Components/Footer'
 import Home from 'Pages/Home'
 import Projects from 'Pages/Projects'
 import Project from 'Pages/Project'
+import Notes from 'Pages/Notes'
+import Note from 'Pages/Note'
 import NoMatch from 'Pages/NoMatch'
 
 const PageView = ({ pathname }) => {
@@ -61,6 +63,8 @@ class App extends React.Component {
 
             <Switch>
               <Route exact path='/' component={Home} />
+              <Route exact path='/notes' component={Notes} />
+              <Route exact path='/notes/:slug' component={Note} />
               <Route exact path='/oss' component={Projects} />
               <Route path='/oss/:slug' component={props => <Project slug={props.match.params.slug} />} />
               <Route component={NoMatch} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from 'micro-grid'
+import { Box } from 'ffx'
 
 const Wrap = ({ children, url }) => url ? (
   <a href={url} target='_blank' className='internet pl1 mb2 rel block'>{children}</a>

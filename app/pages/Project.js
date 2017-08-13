@@ -6,7 +6,7 @@ import RelatedProjects from 'Components/RelatedProjects'
 import { Outer, Container } from 'Components/Layout'
 import Head from 'react-helmet'
 
-import ProjectHeader from 'Components/ProjectHeader'
+import HeaderLite from 'Components/HeaderLite'
 import ProjectHero from 'Components/ProjectHero'
 import ProjectHeroTitle from 'Components/ProjectHeroTitle'
 
@@ -62,7 +62,7 @@ export default hydrate(
           <meta name='twitter:description' content={caption} />
         </Head>
 
-        <ProjectHeader path={title} />
+        <HeaderLite path={title} className='abs left top right' />
 
         <ProjectHero projectURL={url}>
           <ProjectHeroTitle {...data.data} />

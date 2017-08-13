@@ -18,7 +18,7 @@ body {
   -webkit-font-smoothing: antialiased; 
 
   @media (--l) {
-    font-size: 100%;
+    font-size: 110%;
   }
 }
 body, .roboto, pre, code {
@@ -84,7 +84,7 @@ p, .p {
 p, .p { 
   line-height: 1.7;
 }
-p { 
+br, p { 
   margin: 1em 0
 }
 a {
@@ -136,5 +136,8 @@ em, .i {
 .markdown {
   a {
     text-decoration: underline;
+  }
+  img {
+    margin: 1em 0;
   }
 }

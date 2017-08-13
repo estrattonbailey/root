@@ -1,20 +1,20 @@
 import React from 'react'
-import marked from 'marked'
-// import prism from 'prismjs'
+import md from 'md.js'
+import prism from 'prismjs'
 
 export default class Markdown extends React.PureComponent {
-  // componentDidMount () {
-  //   prism.highlightAll()
-  // }
+  componentDidMount () {
+    prism.highlightAll()
+  }
 
-  // componentDidUpdate () {
-  //   prism.highlightAll()
-  // }
+  componentDidUpdate () {
+    prism.highlightAll()
+  }
 
   render () {
     return (
-      <div className='karla markdown' dangerouslySetInnerHTML={{
-        __html: marked(this.props.string || '')
+      <div className='karla markdown s0' dangerouslySetInnerHTML={{
+        __html: md(this.props.string || '')
       }} />
     )
   }

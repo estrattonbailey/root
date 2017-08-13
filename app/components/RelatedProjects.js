@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'react-hydrate-link'
 import { Outer, Container } from 'Components/Layout'
-import { Flex } from 'micro-grid'
+import { Flex } from 'ffx'
 import Project from 'Components/Project'
 
 export default ({ projects }) => projects.length > 0 ? (
