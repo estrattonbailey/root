@@ -8,17 +8,12 @@ import Head from 'react-helmet'
 import Header from 'Components/Header'
 import { Outer, Container } from 'Components/Layout'
 import Section from 'Components/Section'
+import Markdown from 'Components/Markdown'
 
 export default hydrate(
   (props, state) => {
     return api.getEntries({
       content_type: 'note',
-      select: [
-        'fields.slug',
-        'fields.title',
-        'fields.date',
-        'fields.teaser'
-      ]
     }).then(({ items }) => {
       return {
         notes: items.map(i => i.fields)
@@ -32,8 +27,6 @@ export default hydrate(
   (state, props) => {
     if (!state.notes) return false
 
-    console.log(state.notes)
-
     return {
       notes: state.notes
     }
@@ -45,18 +38,21 @@ export default hydrate(
 
       <Outer>
         <Container>
-          <Section title='Notes'>
+          <section className='pv2 s1'>
             {data.notes.map(note => {
               return (
-                <Link to={`/notes/${note.slug}`} key={note.slug}>
-                  <h3 className='mv0'>{note.title}</h3>
-                  <p className='mv05'>{note.teaser}</p>
-                  <p className='karla s6 mv0 gray'>{format(note.date)}</p>
-                </Link>
+                <div key={note.slug} className='note pv2 s2'>
+                  <p className='karla s6 mt0 mb1 gray i'>{format(note.date)}</p>
+                  <h2 className='__title mv0 rel inline-block'>
+                    <Link to={`/notes/${note.slug}`}>
+                      {note.title}
+                    </Link>
+                  </h2>
+                  <Markdown string={note.body} />
+                </div>
               )
             })}
-          </Section>
-          <div className='pv2' />
+          </section>
         </Container>
       </Outer>
     </div>
