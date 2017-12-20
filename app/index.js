@@ -1,27 +1,30 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
-import scroller from 'scroll-restoration'
-
-import App from './App'
-import { Tap } from 'react-hydrate'
+const operator = require('operator.js').default
 
 /**
- * Enable hot reloading for all subsequent modules
+ * Send page views to
+ * Google Analytics
  */
-if (module.hot && process && process.env.NODE_ENV !== 'production') {
-  module.hot.accept()
+function gaTrackPageView () {
+  const ga = window.ga
+
+  if (!ga) return
+
+  const data = {
+    page: window.location.pathname,
+    title: document.title
+  }
+
+  ga('set', data)
+
+  ga('send', 'pageview')
+
+  if (window.__debug) {
+    console.info('Google event', data)
+  }
 }
 
-scroller.init()
+const app = operator({})
 
-/**
- * Other app code goes below
- */
-render((
-  <Router>
-    <Tap hydrate={window.__state || {}}>
-      <App />
-    </Tap>
-  </Router>
-), document.getElementById('root'))
+app.on('afterRender', () => {
+  gaTrackPageView()
+})

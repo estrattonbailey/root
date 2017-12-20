@@ -1,23 +1,5 @@
 {
-  "plugins": [
-    "transform-class-properties",
-    "transform-object-rest-spread",
-    "lodash",
-    "syntax-dynamic-import",
-    ['module-resolver', {
-      'root': ['.'],
-      'alias': {
-        'Components': 'app/components',
-        'Demos': 'app/demos',
-        'Pages': 'app/pages',
-        'Icons': 'app/icons',
-        'Util': 'app/util',
-        'Root': 'app',
-      }
-    }]
-  ],
-  "presets": [
-    "es2015",
-    "react"
+  presets: [
+    'es2015'
   ]
 }
