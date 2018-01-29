@@ -26,9 +26,10 @@ module.exports = function Nav (props) {
         }
       }}>
         <h1 class='h5 b'><a href='/' class='rel' css=${hover}>estrattonbailey<span></span></a></h1>
-        <ul class='block x f aic jce fa h6 b i caps track'>
-          <li><a href='/notes' class='rel' css=${hover}>notes<span></span></a></li>
-        </ul>
       </nav>
    `
 }
+
+        // <ul class='block x f aic jce fa h6 b i caps track'>
+        //   <li><a href='/notes' class='rel' css=${hover}>notes<span></span></a></li>
+        // </ul>

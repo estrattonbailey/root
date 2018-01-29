@@ -25,6 +25,9 @@ router.get('/', (req, res) => {
     console.log(err)
   })
 })
+router.get('*', (req, res) => {
+  res.redirect(302, '/')
+})
 router.get('/notes', (req, res) => {
   Notes('/notes').then(({ markup, css }) => {
     res.send(Shell(markup, css))
