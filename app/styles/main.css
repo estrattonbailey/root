@@ -1,0 +1,40 @@
+@import 'lib/var';
+@import 'lib/reset';
+@import 'lib/colors';
+@import 'lib/display';
+@import 'lib/positioning';
+@import 'lib/flexbox';
+@import 'lib/align';
+@import 'lib/spacing';
+@import 'lib/buttons';
+@import 'lib/forms';
+@import 'lib/lists';
+@import 'lib/typography';
+@import 'lib/z-index';
+
+@import 'components/nav';
+@import 'components/header';
+@import 'components/internets';
+@import 'components/projects';
+@import 'components/resume';
+@import 'components/footer';
+@import 'components/notes';
+
+.outer {
+  max-width: 1200px;
+  padding: 4em 1.2em;
+  margin: auto;
+
+  @media (min-width: 900px) {
+    padding: 10em 3em;
+  }
+}
+
+.internet:hover::before,
+.project:hover::before {
+  content:'';
+  display: block;
+  position: absolute;
+  bottom: -0.4em; left: -2em; right: -2em; top: -1em;
+  background: whitesmoke;
+}

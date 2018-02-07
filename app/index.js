@@ -1,30 +1,49 @@
-const operator = require('operator.js').default
+import React from 'react'
+import { hydrate } from 'react-dom'
+import createRouter from '@foil/react'
+import { Provider } from '@picostate/react'
+import App from 'app/App.js'
+import router from 'app/router.js'
+import store from 'state/store.js'
 
-/**
- * Send page views to
- * Google Analytics
- */
-function gaTrackPageView () {
-  const ga = window.ga
+const Router = createRouter(render => {
+  store.listen(state => {
+    router.resolve(state.location, ({ payload, context }) => {
+      const load = ctx => Promise.resolve(payload.load ? payload.load(ctx) : true)
 
-  if (!ga) return
+      store.hydrate({ router: context })
 
-  const data = {
-    page: window.location.pathname,
-    title: document.title
-  }
+      load(context).then(() => {
+        const { Component } = payload
+        window.history.pushState({}, '', state.location)
+        render(Component)
+      }).catch(e => console.error(e))
+    })
+  })
+})
 
-  ga('set', data)
+document.addEventListener('DOMContentLoaded', e => {
+  store.hydrate(window.__hydrate__)
 
-  ga('send', 'pageview')
+  const startingLocation = window.location.href.replace(window.location.origin, '')
 
-  if (window.__debug) {
-    console.info('Google event', data)
-  }
-}
+  router.resolve(startingLocation, ({ payload, context }) => {
+    const load = ctx => Promise.resolve(payload.load ? payload.load(ctx) : true)
 
-const app = operator({})
+    store.hydrate({ router: context })
 
-app.on('afterRender', () => {
-  gaTrackPageView()
+    load(context).then(() => {
+      const { Component } = payload
+
+      hydrate((
+        <Provider store={store}>
+          <App>
+            <Router>
+              <Component />
+            </Router>
+          </App>
+        </Provider>
+      ), document.getElementById('root'))
+    }).catch(e => console.error(e))
+  })
 })

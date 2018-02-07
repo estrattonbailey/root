@@ -1,0 +1,18 @@
+.footer {
+  hr {
+    margin: 3em 0;
+
+    @media (min-width: 900px) {
+      margin: 5em 0;
+    }
+  }
+
+  a {
+    color: var(--blue);
+
+    &:focus, &:hover {
+      outline: 0;
+      color: var(--black);
+    }
+  }
+}

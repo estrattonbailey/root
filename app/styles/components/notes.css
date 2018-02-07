@@ -1,0 +1,16 @@
+.notes {
+}
+.note {
+  margin: 0 3em 2em 0;
+
+  &:hover sup {
+    opacity: 1;
+  }
+
+  sup {
+    color: var(--blue);
+    top: 8px;
+    transform: translateX(-150%);
+    opacity: 0;
+  }
+}

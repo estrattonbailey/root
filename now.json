@@ -1,0 +1,7 @@
+{
+  "env": {
+    "URL": "@estrattonbailey-site-url",
+    "CONT_SPACE": "@estrattonbailey-contentful-space-id",
+    "CONT_TOKEN": "@estrattonbailey-contentful-access-token"
+  }
+}
