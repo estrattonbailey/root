@@ -13,7 +13,10 @@ export default connect(state => ({
       <React.Fragment>
         <Header
           title={note.fields.title}
-          subtitle={`Published ${differenceInDays(new Date(), new Date(note.fields.date))} days ago`} />
+          subtitle={`${differenceInDays(new Date(), new Date(note.fields.date))} days ago`} />
+        <article dangerouslySetInnerHTML={{
+          __html: note.fields.body
+        }} />
       </React.Fragment>
     ) : null
   }

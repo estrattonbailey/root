@@ -13,6 +13,16 @@ const parser = require('body-parser')
 const contentful = require('./contentful.js')
 
 /**
+ * Server data
+ */
+const cache = require('./cache.js')
+
+/**
+ * Markup
+ */
+const { head, foot } = require('./html.js')
+
+/**
  * App
  */
 const React = require('react')
@@ -39,23 +49,16 @@ router.get('*', (req, res) => {
 
     store.hydrate({ router: context })
 
+    const title = 'Eric Bailey'
+
     load(context).then(() => {
       const { Component } = payload
 
       res.statusCode = 200
       res.setHeader('Content-Type', 'text/html')
-      res.write(`
-        <!doctype html>
-        <html>
-          <head>
-            <meta charset="utf-8"/>
-            <title>Eric Bailey</title>
-            <link rel='stylesheet' href='/main.css' />
-          </head>
-          <body>
-            <div id='root'>`
-      )
-
+      res.write(head({
+        title
+      }))
       const stream = renderToNodeStream((
         <Provider store={store}>
           <App>
@@ -65,14 +68,9 @@ router.get('*', (req, res) => {
       ))
       stream.pipe(res, { end: false })
       stream.on('end', () => {
-        res.write(`</div>
-              <script src='/index.js'></script>
-              <script>
-                window.__hydrate__ = ${JSON.stringify(store.state)}
-              </script>
-            </body>
-          </html>
-        `)
+        res.write(foot({
+          state: store.state
+        }))
         res.end()
       })
     }).catch(e => {

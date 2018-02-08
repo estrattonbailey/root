@@ -10,7 +10,7 @@
     margin-left: 2em;
   }
 
-  h1 {
+  a {
     & span {
       display: block;
       position: absolute;

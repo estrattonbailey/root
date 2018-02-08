@@ -8,7 +8,7 @@ export default function Nav (props) {
         <Link href='/' className='nav__logo rel'>estrattonbailey<span /></Link>
       </h1>
 
-      <ul className='block x f aic jce fa h6 b i caps track'>
+      <ul className='block x f aic jce fa h5 b'>
         <li><Link href='/notes' className='rel'>notes<span /></Link></li>
       </ul>
     </nav>

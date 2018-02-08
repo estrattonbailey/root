@@ -109,8 +109,11 @@ a {
   text-decoration: none;
 }
 hr {
+  outline: 0;
+  border: 0;
+  display: block;
   height: 4px;
-  background-color: var(--blue);
+  background-color: var(--black);
 }
 blockquote {
   border-left: 4px solid var(--blue);
@@ -122,8 +125,10 @@ blockquote * {
   max-width: 27em;
 }
 pre {
+  margin: 4em 0;
   padding: 2em;
-  background-color: whitesmoke;
+  background-color: var(--black);
+  color: white;
   word-wrap: normal;
   overflow: auto;
 }
@@ -170,4 +175,14 @@ em, .i {
 }
 .rte p {
   margin: 1em 0;
+}
+.bg-text {
+  white-space: pre-wrap;
+  display: inline;
+  color: var(--black);
+  background: var(--black);
+
+  &.blue {
+    background: var(--blue);
+  }
 }

@@ -27,6 +27,13 @@ document.addEventListener('DOMContentLoaded', e => {
 
   const startingLocation = window.location.href.replace(window.location.origin, '')
 
+  window.addEventListener('popstate', e => {
+    e.preventDefault()
+    store.hydrate({
+      location: window.location.href.replace(window.location.origin, '')
+    })()
+  })
+
   router.resolve(startingLocation, ({ payload, context }) => {
     const load = ctx => Promise.resolve(payload.load ? payload.load(ctx) : true)
 

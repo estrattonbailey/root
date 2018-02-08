@@ -3,11 +3,19 @@ const {
   CONT_TOKEN
 } = process.env
 
+const md = require('marked')
+const hl = require('highlight.js')
 const cache = require('./cache.js')
 
 const api = require('contentful').createClient({
   space: CONT_SPACE,
   accessToken: CONT_TOKEN
+})
+
+md.setOptions({
+  highlight: function (code) {
+    return hl.highlightAuto(code).value
+  }
 })
 
 function getProjects () {
@@ -69,9 +77,19 @@ function getNotes () {
       'fields.teaser',
       'fields.body'
     ].join(',')
-  }).then(({ items }) => {
-    cache.hydrate({ notes: items })
-  }).catch(e => console.log(e))
+  })
+    .then(({ items }) => {
+      cache.hydrate({ notes: items })
+      return items
+    })
+    .then(items => {
+      items = items.map(i => {
+        i.fields.body = md(i.fields.body)
+        return i
+      })
+      cache.hydrate({ notes: items })
+    })
+    .catch(e => console.log(e))
 }
 
 module.exports = {

@@ -1,11 +1,19 @@
 :root {
-  --black: #223355;
-  --blue: #4488FF;
+  --white: #fff;
+  --black: #2e3440;
+  --blue: #277be3;
+  --yellow: #ebcb8b;
 }
 
+.white {
+  color: var(--white);
+}
 .black {
   color: var(--black)
 }
 .blue {
   color: var(--blue)
+}
+.bg-blue {
+  background-color: var(--blue)
 }

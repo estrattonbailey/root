@@ -1,3 +1,4 @@
+@import 'nord';
 @import 'lib/var';
 @import 'lib/reset';
 @import 'lib/colors';
@@ -14,11 +15,14 @@
 
 @import 'components/nav';
 @import 'components/header';
-@import 'components/internets';
-@import 'components/projects';
+@import 'components/card';
 @import 'components/resume';
 @import 'components/footer';
 @import 'components/notes';
+
+html, body {
+  background: var(--white);
+}
 
 .outer {
   max-width: 1200px;
@@ -30,11 +34,14 @@
   }
 }
 
-.internet:hover::before,
-.project:hover::before {
-  content:'';
-  display: block;
-  position: absolute;
-  bottom: -0.4em; left: -2em; right: -2em; top: -1em;
-  background: whitesmoke;
+.section {
+  margin-bottom: 3em;
+
+  @media (min-width: 900px) {
+    margin-bottom: 5em;
+  }
+}
+.section-title {
+  padding: 0.2em 0.6em;
+  background: var(--blue);
 }
