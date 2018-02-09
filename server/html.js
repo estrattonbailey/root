@@ -3,6 +3,7 @@ const head = ({ meta, title }) => `<!doctype html>
     <head>
       <meta charset="utf-8"/>
       <title>${title}</title>
+      <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet"> 
       <link rel='stylesheet' href='/main.css' />
     </head>
     <body>

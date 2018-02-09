@@ -39,6 +39,9 @@ export default route({
   path,
   payload: {
     Component: Home,
-    load
+    load,
+    title () {
+      return 'Eric Bailey'
+    }
   }
 })

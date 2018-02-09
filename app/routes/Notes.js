@@ -27,6 +27,9 @@ export default route({
   path,
   payload: {
     Component: Notes,
-    load
+    load,
+    title () {
+      return 'Notes | Eric Bailey'
+    }
   }
 })

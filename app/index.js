@@ -14,7 +14,12 @@ const Router = createRouter(render => {
       store.hydrate({ router: context })
 
       load(context).then(() => {
-        const { Component } = payload
+        const { Component, title } = payload
+
+        if (title) {
+          document.title = title(context.params)
+        }
+
         window.history.pushState({}, '', state.location)
         render(Component)
       }).catch(e => console.error(e))
@@ -40,7 +45,11 @@ document.addEventListener('DOMContentLoaded', e => {
     store.hydrate({ router: context })
 
     load(context).then(() => {
-      const { Component } = payload
+      const { Component, title } = payload
+
+      if (title) {
+        document.title = title(context.params)
+      }
 
       hydrate((
         <Provider store={store}>

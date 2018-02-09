@@ -27,7 +27,7 @@ function load ({ params }) {
       store.hydrate(_ => {
         return {
           notes: exists(slug, _.notes) ? (
-            _.notes
+            _.note
           ) : (
             _.notes ? _.notes.push(note) : [note]
           )
@@ -40,6 +40,10 @@ export default route({
   path,
   payload: {
     Component: Note,
-    load
+    load,
+    title ({ slug }) {
+      const note = exists(slug, store.state.notes)
+      return note ? `${note.fields.title} | Eric Bailey` : 'Eric Bailey'
+    }
   }
 })
