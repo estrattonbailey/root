@@ -13,7 +13,7 @@
     }
 
     sup {
-      color: var(--c1);
+      color: var(--blue);
       top: 8px;
       transform: translateX(-150%);
       opacity: 0;

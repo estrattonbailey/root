@@ -46,8 +46,8 @@
     "webpack": "^3.10.0"
   },
   "dependencies": {
-    "@foil/react": "0.0.2",
-    "@picostate/react": "0.0.4",
+    "@foil/react": "^1.1.1",
+    "@picostate/react": "^1.1.0",
     "apollo-fetch": "^0.7.0",
     "body-parser": "^1.18.2",
     "classnames": "^2.2.5",

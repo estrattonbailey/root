@@ -7,8 +7,7 @@ const head = ({ meta, title }) => `<!doctype html>
       <link rel='stylesheet' href='/main.css' />
     </head>
     <body>
-      <div id='root'>
-`
+      <div id='root'>`
 
 const foot = ({ state }) => `</div>
       <script src='/index.js'></script>

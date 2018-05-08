@@ -39,7 +39,7 @@ html, body {
   font-family: 'Karla', helvetica;
   color: var(--black);
   background: white;
-  font-size: 100%;
+  font-size: 120%;
   line-height: 1.7;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -99,7 +99,7 @@ h6, .h6 {
 }
 .s0,
 p, .p { 
-  font-size: 1.2rem;
+  font-size: 1em;
   letter-spacing: -0.02em;
 }
 p { 
@@ -118,21 +118,27 @@ hr {
   background-color: var(--black);
 }
 blockquote {
-  border-left: 4px solid var(--blue);
+  border-left: 4px solid var(--black);
   margin: 2em 0;
-  padding: 0.5em 0 0.5em 3em;
-}
-blockquote * {
-  font-size: 2rem;
-  max-width: 27em;
+  padding: 0 0 0 1em;
+  font-size: 1em;
+  p {
+    color: var(--gray);
+  }
+  code {
+    color: var(--black);
+  }
 }
 pre {
-  margin: 4em 0;
+  margin: 3em 0;
   padding: 2em;
   background-color: var(--black);
   color: white;
   word-wrap: normal;
   overflow: auto;
+}
+code {
+  background: var(--light);
 }
 pre code {
   padding: 0;
@@ -161,22 +167,27 @@ em, .i {
 .track {
   letter-spacing: 0.2em;
 }
-.rte a {
-  color: var(--blue);
-}
-.rte img {
-  max-width: 100%;
-}
-.rte h1,
-.rte h2,
-.rte h3,
-.rte h4,
-.rte h5,
-.rte h6 {
-  margin: 0.6em 0;
-}
-.rte p {
-  margin: 1em 0;
+.rte {
+  a {
+    color: var(--blue);
+  }
+  img {
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1.2em 0 0.6em;
+  }
+  p {
+    margin: 1em 0;
+  }
+
+  ul {
+    list-style: disc;
+  }
+  ul, li {
+    font-size: 1em;
+  }
 }
 .bg-text {
   white-space: pre-wrap;

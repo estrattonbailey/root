@@ -28,6 +28,7 @@ const { head, foot } = require('./html.js')
 const React = require('react')
 const { renderToNodeStream } = require('react-dom/server')
 const { Provider } = require('@picostate/react')
+const { Router } = require('@foil/react')
 const foil = require('app/router.js').default
 const store = require('state/store').default
 const App = require('app/App.js').default
@@ -47,22 +48,20 @@ router.get('*', (req, res) => {
   foil.resolve(req.originalUrl, ({ payload, context, redirect }) => {
     const load = ctx => Promise.resolve(payload.load ? payload.load(ctx) : true)
 
-    store.hydrate({ router: context })
-
-    const title = 'Eric Bailey'
-
     load(context).then(() => {
       const { Component } = payload
 
       res.statusCode = 200
       res.setHeader('Content-Type', 'text/html')
       res.write(head({
-        title
+        title: payload.title ? payload.title(context) : 'Eric Bailey'
       }))
       const stream = renderToNodeStream((
         <Provider store={store}>
           <App>
-            <Component />
+            <Router router={router} context={context}>
+              <Component />
+            </Router>
           </App>
         </Provider>
       ))

@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'components/Link.js'
+import { Link } from '@foil/react'
 
 export default function Nav (props) {
   return (

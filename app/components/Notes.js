@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from '@picostate/react'
 import differenceInDays from 'date-fns/difference_in_days'
 import Section from 'components/Section.js'
-import Link from 'components/Link.js'
+import { Link } from '@foil/react'
 
 export default connect(state => ({
   notes: state.notes
