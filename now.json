@@ -1,4 +1,8 @@
 {
+  "name": "root",
+  "alias": [
+    "estrattonbailey.com"
+  ],
   "env": {
     "CONTENTFUL_SPACE_ID": "@root-contentful-space-id",
     "CONTENTFUL_ACCESS_TOKEN": "@root-contentful-access-token"
