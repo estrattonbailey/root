@@ -15,7 +15,10 @@ app.use(require('compression')())
 app.use(require('serve-static')('public'))
 
 function done (res, str) {
-  res.writeHead(200, { 'Content-Type': 'text/html' })
+  res.writeHead(200, {
+    'Content-Type': 'text/html',
+    'Cache-Control': 'max-age=86400'
+  })
   res.write(str)
   res.end()
 }
